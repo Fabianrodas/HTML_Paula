@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumple Paula</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('FOTOS_HTML\\fondo_verde.gif');
+            background-color: #2a524a;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: brightness(0.7);
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #457b55;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(38, 70, 83, 0.2);
+            max-width: 600px;
+            width: 90%;
+            box-sizing: border-box;
+            margin: auto;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            color: #c8f2d4;
+            font-size: 28px;
+            margin-bottom: 15px;
+            transition: color 0.5s;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #b4c4b9;
+        }
+
+        img {
+            border-radius: 20px;
+            margin-top: 10px;
+            max-width: 50%;
+            box-shadow: 0 4px 8px rgba(38, 83, 72, 0.2);
+            transition: transform 0.5s ease;
+            margin-bottom: 20px;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            padding: 10px 20px;
+            background-color: #2a9d8f;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.5s;
+        }
+
+        .menu-item:hover {
+            background-color: #207672;
+        }
+
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+            border-radius: 10px;
+            transition: opacity 1s;
+        }
+
+        .tab1-content {
+            display: block;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .carousel {
+        display: flex;
+        flex-direction: column; /* Cambiar la dirección a 'column' */
+        overflow-x: auto;
+        margin-top: 20px;
+        scroll-snap-type: x mandatory;
+        }
+
+
+        .carousel img {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        border-radius: 20px;
+        margin-right: 0;
+        box-shadow: 0 4px 8px rgba(38, 70, 83, 0.2);
+        transition: transform 0.5s ease;
+        max-width: 50%;
+        margin-bottom: 10px; /* Agregar un margen inferior */
+        }
+
+
+        .tab2-content {
+        display: block;
+        margin-top: 20px;
+        border-radius: 10px;
+        transition: opacity 1s;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.1);
+        }
+
+        .carousel p {
+            margin: 5px 0;
+        } 
+
+        .qr-section {
+            margin-top: 30px;
+        }
+
+        .qr-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            background-color: #184232;
+            color: #fff;
+            padding: 10px;
+            font-size: 12px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }    
+
+        .footer:hover {
+            background-color: #207672;
+        }
+
+        .header {
+            background-color: #184232;
+            color: #fff;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 12px;
+            border-radius: 20px;
+        }
+
+        .header:hover {
+            background-color: #207672;
+        }
+
+        .custom-background h2 {
+            color: #fff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .custom-background {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        }
+        
+        .download-button {
+            padding: 15px 30px;
+            background-color: #2a9d8f;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.5s;
+        }
+
+        .download-button:hover {
+            background-color: #207672;
+        }
+
+        .adjetivos {
+            padding: 15px 30px;
+            background-color: #2a9d8f;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.5s;
+        }
+
+        .adjetivos:hover {
+            background-color: #207672;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="container">
+        <div class="header" onclick="window.open('https://youtu.be/pvtABJXOrNU?si=U0hiqrk9AN__2U24', '_blank');">
+            <p>Hecho con mucho cariño por Fabion</p>
+        </div>
+
+        <h1>¡Feliz Cumple Paula!</h1>
+        <div class="tab-content custom-background tab1-content">
+            <h2>Te quiero mucho :)</h2>
+            <p>Esta pagina esta hecha con HTML, CSS, JavaScript, un poquito de Python y bueno tambien un poquito de ChatGPT. Espero que te guste mucho ya que como no soy experto en esto me costo hacerla aunque se vea super simple. (Mas de 400 lineas de codigo) </p>
+        </div>
+        <p>Eres un persona muy especial para mi, siempre te tengo presente en mi día a día y bueno esta foto te va a perseguir por toda la pagina asi como yo la persigo a usted por toda la UEES.</p>
+        <img src="FOTOS_HTML\foto_menu.jpeg" alt="Imagen de Paula">
+
+        <div class="menu">
+            <a href="#" class="menu-item" onclick="showTab('tab1')">Inicio</a>
+            <a href="#" class="menu-item" onclick="showTab('tab2')">Fotos</a>
+            <a href="#" class="menu-item" onclick="showTab('tab3')">Parrafo</a>
+            <a href="#" class="menu-item" onclick="showTab('tab4')">QR</a>
+            <a href="#" class="menu-item" onclick="showTab('tab5')">Código</a>
+        </div>
+
+        <div class="tab-content" id="tab2-content">
+            <h2>Fotos</h2>
+            <div class="carousel">
+            <p>Bueno aqui estan mis fotos favoritas que tengo contigo, no iba a poner como las 300 que tenemos en el album porque o se vería muy sobrecargado o me crashea la pagina :)</p>
+                <figure class="photo">
+                    <img src="FOTOS_HTML\congress.jpg" alt="Web Congress">
+                    <figcaption>Aquí mas o menos donde empezo todo, cuando fuimos a la web congress de la UEES y nos conocimos mejor.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\krispy_1.JPG" alt="Krispy Kreme">
+                    <figcaption>Esta fue la primera vez que fuimos al krispy kreme despues de que haya ganado la tarjeta.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\eagle.JPG" alt="Eagle">
+                    <figcaption>Te di al eagle como recuerdo de cuando volvi de Miami.</figcaption>
+                </figure>
+                
+                <figure class="photo">
+                    <img src="FOTOS_HTML\losdos.JPG" alt="DT">
+                    <figcaption>Aqui cuando pasabamos en la clase de Marco e ibamos con chompas blancas los dos.</figcaption>
+                </figure>    
+                
+                <figure class="photo">
+                    <img src="FOTOS_HTML\llamada.PNG" alt="Llamada">
+                    <figcaption>Esta fue una de las primeras llamadas que hicimos y creo que la primera a la que le tome foto.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\chompa_yo.JPG" alt="Chompa 1">
+                    <figcaption>Cuando yo me probe toda las chompas que tenia en llamada y tarde full.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\chompa_paula.PNG" alt="Chompa 2">
+                    <figcaption>Cuando usted en otra llamada tambien se probo todas sus chompas y tardaste mucho mas que yo.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\bear.jpg" alt="Little Bear">
+                    <figcaption>Te di al Bear cuando estabamos en el mall por navidad con los chicos de sistemas.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\mall.JPG" alt="Mall">
+                    <figcaption>Aqui ya fuimos los dos solos al mall e hicimos muchas cosas cheveres y estuvo bonito.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\mrjoy.jpg" alt="MrJoy">
+                    <figcaption>Ahora en el rcc cuando fuimos al Mr Joy y despues fuimos a comer apurados por nuestras madres.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\dolce.JPG" alt="Dolce">
+                    <figcaption>En el Dolce esperando la comida que tambien estuvo muy rica pero se te derritio el brownie con helado.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\apple.jpg" alt="Apple">
+                    <figcaption>Fuimos a la tienda de Apple en el mall para ver y bueno la foto salio bonita, estabamos navideños.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\baru.JPG" alt="Baru">
+                    <figcaption>En este momento te diste cuenta que me sabía de memoria tu bio del priv, Stem girl in process.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\caramel.JPG" alt="Caramel">
+                    <figcaption>Fuimos al Caramel para tener nuestro desayuno navideño y dejamos todo hecho un desastre.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\sucio.JPG" alt="Sucio">
+                    <figcaption>Nos toco limpiar toda esa cochinada que dejamos pero valio la pena ese mini desayuno, muy bonito el ambiente.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\discord.jpg" alt="Discord">
+                    <figcaption>Cuando dije el micro prendido en Discord y escuchaste todas las groserías que digo con mis panas.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\kauka.jpg" alt="Kauka">
+                    <figcaption>Te compre un desayuno en Kauka y tengo planeado llevarte otra vez este semestre porque me gustó.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\krispy.JPG" alt="Krispy con Dome">
+                    <figcaption>Fuimos al Krispy como todos los meses pero esa vez la invite a Dome tambien porque ella es chevere.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\llamada_yo.JPG" alt="Llamada yo">
+                    <figcaption>Usted me obligo a tomarme esa foto con esa decoración pero ni tan mal salio la verdad.</figcaption>
+                </figure>
+
+                <figure class="photo">
+                    <img src="FOTOS_HTML\navidad.JPG" alt="Navidad">
+                    <figcaption>En el mall esperando a su mami y bueno que chevere que es salir contigo, siempre lo disfruto mucho.</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab3-content">
+            <h2>Párrafo</h2>
+            <p>Paula la verdad que soy mejor diciendote las cosas en llamada que escribiendolas, me di cuenta mientras escribía el codigo. Bueno primero que todo ya tienes 19 ya eres mayor que yo :/</p>
+            <p>Espero que la pases muy chevere en tu cumple y mucho mejor el viernes que vamos a salir con la gente de la U :) Tambien quiero que sepas que te quiero mucho mucho mucho y que asi como tu me has visto progresar y cambiar para bien, yo tambien te he notado mejor desde el día que te conocí hasta ahorita que estoy escribiendo esto.</p>
+            <p> Eres la mejor persona que conozco, super inteligente, super chevere, para variar super guapa, tengo tantos adjetivos que te quiero decir que si los pongo todos este codigo llega a las 1000 lineas facilmente asi que te los resumo aqui:</p>
+            <button class="adjetivos" onclick="window.open('https://inspirassion.com/es/adj/chicas', '_blank');">Toca aquí</button>
+        </div>
+
+        <div class="tab-content qr-section" id="tab4-content">
+            <h2>QR</h2>
+            <img class="qr-image" src="FOTOS_HTML\Estrellas.png" alt="QR Sorpresa">
+        </div>
+
+        <div class="tab-content" id="tab5-content">
+            <h2>Código de la Página</h2>
+            <button class="download-button" onclick="window.open('https://drive.google.com/drive/folders/1tXAmgALh-eZ1LgzmZk2vwXnsCXoKLO8E?usp=sharing', '_blank');">Descargar</button>        
+        </div>
+
+        <div class="footer" onclick="location.href='corazon.py';">
+            <p>Feliz Cumpleaños</p><p>(Haz clic aquí, despues abrelo en la consola de Python)</p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Oculta todas las pestañas
+            var tabs = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = 'none';
+            }
+
+            // Muestra la pestaña seleccionada con una pequeña pausa para la animación
+            setTimeout(function() {
+                document.getElementById(tabName + '-content').style.display = 'block';
+            }, 50);
+
+            // Muestra la sección de inicio personalizada solo cuando se selecciona la pestaña de inicio
+            if (tabName === 'tab1') {
+                document.querySelector('.custom-background').style.display = 'flex';
+            } else {
+                document.querySelector('.custom-background').style.display = 'none';
+            }
+        }
+
+        // Función para ocultar todas las secciones
+        function hideAllTabs() {
+            var tabs = document.querySelectorAll('.tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = 'none';
+            }
+
+        }
+        
+        function handleScroll(element) {
+            var rect = element.getBoundingClientRect();
+            var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            
+            if (rect.top <= windowHeight / 2) {
+                element.classList.add('visible');
+            }
+        }
+
+        window.addEventListener('scroll', function () {
+            handleScroll(document.querySelector('.animated-photo'));
+        });
+    </script>
+</body>
+</html>
