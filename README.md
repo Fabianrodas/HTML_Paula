@@ -1,0 +1,1 @@
+Espero que te guste mucho este mini proyecto que te hice, se me hicieron 400 lineas de codigo, se ve simple pero me tomo muchas muchas horas, tras eso que soy perezoso y no avanzaba nada pero por fin acabe. Disfrutalo :)
